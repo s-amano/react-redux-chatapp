@@ -24,3 +24,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export const messagesRef = firebase.database().ref(`messages`);
+export const firebaseTimestamp = firebase.database.ServerValue.TIMESTAMP;
+export const messageRef = (key: string): firebase.database.Reference => {
+  return firebase.database().ref(`messages/${key}`);
+};

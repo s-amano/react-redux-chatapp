@@ -6,11 +6,14 @@ import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 
 import { UsersReducer } from "../user/reducers";
+import { MessagesReducer } from "../messages/reducers";
 
 import { User } from "../user/types";
+import { Messages } from "../messages/types";
 
 export interface RootState {
   user: User;
+  messages: Messages;
 }
 
 // 永続化(redux-persist)の設定
@@ -25,6 +28,7 @@ const persistedReducer = persistReducer(
   persistConfig,
   combineReducers<RootState>({
     user: UsersReducer,
+    messages: MessagesReducer,
   })
 );
 
