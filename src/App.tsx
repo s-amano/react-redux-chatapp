@@ -1,8 +1,14 @@
-import React from "react";
+import { useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { messagesRef } from "./firebase/firebase";
 
 function App() {
+  useEffect(() => {
+    messagesRef.on("value", (snapshot) => {
+      console.log("test", snapshot.val());
+    });
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
