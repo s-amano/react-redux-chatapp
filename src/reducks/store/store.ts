@@ -13,7 +13,7 @@ export interface RootState {
   user: User;
 }
 
-// 永続化の設定
+// 永続化(redux-persist)の設定
 const persistConfig = {
   key: "root",
   storage,
