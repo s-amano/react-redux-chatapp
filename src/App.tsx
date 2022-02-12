@@ -5,7 +5,7 @@ import { RootState } from "./reducks/store/store";
 import { getMessages } from "./reducks/messages/selectors";
 import { fetchMessages } from "./reducks/messages/operations";
 import { Header } from "./components/Header";
-import { EnterForm } from "./components/EnterForm";
+import { MessagesHeaderForm } from "./components/MessagesHeaderForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ function App() {
     <>
       <Header />
       <div className="flex flex-col justify-center items-center mt-10 pb-24 h-screen">
-        <EnterForm />
+        <MessagesHeaderForm />
         {modifiedMessages.map((data) => {
           return (
             <div
