@@ -35,8 +35,6 @@ export const useMessages = () => {
     reaction?: number;
   }[] = useMemo(() => {
     const messages = getMessages(selector);
-    console.log(messages);
-    console.log(typeof messages);
     return Object.entries(messages || {})
       .map((data) => {
         const [key, value] = data;

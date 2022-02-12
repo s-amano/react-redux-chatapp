@@ -9,7 +9,6 @@ export const useUser = () => {
   const selector = useSelector((state: RootState) => state, shallowEqual);
   const { isSignedIn, signedInUsername } = getUser(selector);
   const exitFromChat = useCallback(() => {
-    // setChatContext("");
     dispatch(signOut());
   }, [dispatch]);
 
@@ -24,7 +23,6 @@ export const useUser = () => {
         return;
       }
       dispatch(signIn(username));
-      // setUsername("");
     },
     [dispatch]
   );

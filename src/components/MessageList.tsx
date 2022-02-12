@@ -11,6 +11,7 @@ export const MessageList: React.FC = React.memo(() => {
     },
     [reactionMessageSubmit]
   );
+  console.log("messagelist render");
   return (
     <>
       {modifiedMessages.length > 0 ? (

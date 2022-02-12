@@ -1,7 +1,7 @@
 import React from "react";
 import { ExitButton } from "./ExitButton";
 
-export const Header: React.FC = () => {
+export const Header: React.FC = React.memo(() => {
   return (
     <header>
       <nav className="w-screen bg-gray-400 h-18 py-3">
@@ -14,4 +14,6 @@ export const Header: React.FC = () => {
       </nav>
     </header>
   );
-};
+});
+
+Header.displayName = "Header";

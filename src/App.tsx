@@ -1,22 +1,9 @@
 import "./App.css";
-import { useEffect } from "react";
-import { shallowEqual, useSelector, useDispatch } from "react-redux";
-import { RootState } from "./reducks/store/store";
-import { fetchMessages } from "./reducks/messages/operations";
 import { Header } from "./components/Header";
 import { MessagesHeaderForm } from "./components/MessagesHeaderForm";
 import { MessageList } from "./components/MessageList";
 
 function App() {
-  const dispatch = useDispatch();
-  const selector = useSelector((state: RootState) => state, shallowEqual);
-
-  console.log(selector.user);
-
-  useEffect(() => {
-    dispatch(fetchMessages());
-  }, [dispatch]);
-
   return (
     <>
       <Header />
