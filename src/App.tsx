@@ -1,8 +1,7 @@
 import "./App.css";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { shallowEqual, useSelector, useDispatch } from "react-redux";
 import { RootState } from "./reducks/store/store";
-import { getMessages } from "./reducks/messages/selectors";
 import { fetchMessages } from "./reducks/messages/operations";
 import { Header } from "./components/Header";
 import { MessagesHeaderForm } from "./components/MessagesHeaderForm";
