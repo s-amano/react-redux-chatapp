@@ -9,6 +9,13 @@ import {
 } from "../reducks/messages/operations";
 import { RootState } from "../reducks/store/store";
 
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/ja";
+
+dayjs.extend(relativeTime);
+dayjs.locale("ja");
+
 export const useMessages = () => {
   const dispatch = useDispatch();
   const selector = useSelector((state: RootState) => {
@@ -49,8 +56,27 @@ export const useMessages = () => {
     [dispatch, isSignedIn, signedInUsername]
   );
 
+  const reactionMessageSubmit = useCallback(
+    (key: string, nowReaction: number) => {
+      if (isSignedIn) {
+        dispatch(reactionMessage(key, nowReaction));
+      } else {
+        alert("リアクションには入室が必要です");
+      }
+    },
+    [dispatch, isSignedIn]
+  );
+
+  const fromNowDateFunction = useCallback((timestamp: number | undefined) => {
+    return timestamp && typeof timestamp === "number"
+      ? dayjs(new Date(timestamp)).fromNow()
+      : null;
+  }, []);
+
   return {
     modifiedMessages,
     chatContextSubmit,
+    reactionMessageSubmit,
+    fromNowDateFunction,
   };
 };
