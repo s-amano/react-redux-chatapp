@@ -3,7 +3,6 @@ import { messagesRef, firebaseTimestamp, messageRef } from "../../firebase";
 import { fetchMessagesAction } from "./actions";
 
 export const fetchMessages = () => {
-  console.log("fetch operation");
   return async (dispatch: any) => {
     messagesRef
       .orderByKey()
@@ -11,7 +10,6 @@ export const fetchMessages = () => {
       .on("value", (snapshot) => {
         if (snapshot && snapshot.val()) {
           const messages = snapshot.val();
-          console.log(messages);
 
           dispatch(fetchMessagesAction(messages));
         }
@@ -29,7 +27,6 @@ export const pushMessage = (username: string, text: string) => {
       created_at: timestamp,
       reaction: 0,
     };
-    console.log("pushdata", pushData);
     return messagesRef.push(pushData);
   };
 };
