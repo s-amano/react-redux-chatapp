@@ -4,16 +4,13 @@ import { fetchMessagesAction } from "reducks/messages/actions";
 
 export const fetchMessages = () => {
   return async (dispatch: any) => {
-    messagesRef
-      .orderByKey()
-      .limitToLast(15)
-      .on("value", (snapshot) => {
-        if (snapshot && snapshot.val()) {
-          const messages = snapshot.val();
+    messagesRef.orderByKey().on("value", (snapshot) => {
+      if (snapshot && snapshot.val()) {
+        const messages = snapshot.val();
 
-          dispatch(fetchMessagesAction(messages));
-        }
-      });
+        dispatch(fetchMessagesAction(messages));
+      }
+    });
   };
 };
 
