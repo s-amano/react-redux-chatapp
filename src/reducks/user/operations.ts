@@ -1,5 +1,5 @@
-import { signInAction, signOutAction } from "./actions";
-import { persistor } from "../store/store";
+import { signInAction, signOutAction } from "reducks/user/actions";
+import { persistor } from "reducks/store/store";
 
 export const signIn = (username: string) => {
   return async (dispatch: any, getState: any) => {

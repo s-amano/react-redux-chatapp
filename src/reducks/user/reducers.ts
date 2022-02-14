@@ -1,5 +1,5 @@
-import * as Actions from "./actions";
-import { initialState } from "../store/initialState";
+import * as Actions from "reducks/user/actions";
+import { initialState } from "reducks/store/initialState";
 
 export const UsersReducer = (state = initialState.user, action: any) => {
   switch (action.type) {

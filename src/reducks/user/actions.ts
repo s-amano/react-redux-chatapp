@@ -1,5 +1,7 @@
+import { User } from "reducks/user/types";
+
 export const SIGN_IN = "SIGN_IN";
-export const signInAction = (userState: any) => {
+export const signInAction = (userState: User) => {
   return {
     type: "SIGN_IN",
     payload: {

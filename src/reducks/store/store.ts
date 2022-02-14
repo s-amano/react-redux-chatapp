@@ -5,11 +5,11 @@ import storage from "redux-persist/lib/storage";
 
 import thunk from "redux-thunk";
 
-import { UsersReducer } from "../user/reducers";
-import { MessagesReducer } from "../messages/reducers";
+import { UsersReducer } from "reducks/user/reducers";
+import { MessagesReducer } from "reducks/messages/reducers";
 
-import { User } from "../user/types";
-import { Messages } from "../messages/types";
+import { User } from "reducks/user/types";
+import { Messages } from "reducks/messages/types";
 
 export interface RootState {
   user: User;

@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import { RootState } from "../store/store";
+import { RootState } from "reducks/store/store";
 
 const messagesSelector = (state: RootState) => state.messages.messageList;
 

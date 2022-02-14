@@ -7,8 +7,10 @@ import {
   pushMessage,
   reactionMessage,
 } from "../reducks/messages/operations";
+import { ModifiedMessages } from "reducks/messages/types";
 import { RootState } from "../reducks/store/store";
 
+// dayjs周りの設定 - 相対日時のプラグインを有効化&日本語化
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/ja";
@@ -27,13 +29,7 @@ export const useMessages = () => {
     dispatch(fetchMessages());
   }, [dispatch]);
 
-  const modifiedMessages: {
-    key: string;
-    username: string;
-    text: string;
-    created_at?: number;
-    reaction?: number;
-  }[] = useMemo(() => {
+  const modifiedMessages: ModifiedMessages[] = useMemo(() => {
     const messages = getMessages(selector);
     return Object.entries(messages || {})
       .map((data) => {

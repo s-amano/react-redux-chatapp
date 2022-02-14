@@ -1,6 +1,6 @@
 import { messagesRef, firebaseTimestamp, messageRef } from "../../firebase";
 
-import { fetchMessagesAction } from "./actions";
+import { fetchMessagesAction } from "reducks/messages/actions";
 
 export const fetchMessages = () => {
   return async (dispatch: any) => {
