@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+# 機能要件
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 任意の人数がチャットに参加できる。
+- チャットでは最初に名前を設定して入室する。
+- チャットから退出することができる。
+- 入室後は任意のテキストを送信できる。
+- 送信したテキストは入室前のユーザーも含め全員が見られる。
+- 送信されたメッセージはサーバーに送信し、保存される。
+- メッセージに対してリアクションをすることができる。
 
-## Available Scripts
+## 技術選定
 
-In the project directory, you can run:
+### フロントエンド
 
-### `npm start`
+- React (Typescript)
+- Redux
+- redux-thunk
+を利用。
+#### 補足
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Redux周りのディレクトリ構成にはre-ducksパターンを採用。
+日付の計算周りにはdayjsを利用。
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### サーバーサイド
 
-### `npm test`
+Firebase Realtime Databaseを採用。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### 補足
 
-### `npm run build`
+候補①AWS Lambda, ②Appsync(GraphQL), ③Firabase Realtime Database
+①はリアルタイムの通信に別途Websocketの対応が必要そうだったため除外した。
+②はCLIによって自動生成されたソースコードで簡単にリアルタイムな通信が出来たが、状態管理がReduxよりもApollo Clientの方が相性が良さそうだったため除外した。
+③は接続が簡単であること、リアルタイム同期型のDBであること、ホスティングが容易なことから③を選択した。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 工夫した点
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- メッセージに対してのリアクション機能を追加した点
+- redux-persistで入室したユーザーデータをlocal storageに永続化している点
+-   
 
-### `npm run eject`
+## 課題
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Redux周りの型付けに苦戦し、any型で回避した箇所がある点
+- メッセージのページネーションを実装出来ていない点
