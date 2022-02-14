@@ -37,7 +37,6 @@ Firebase Realtime Databaseを採用。
 
 - メッセージに対してのリアクション機能を追加した点
 - redux-persistで入室したユーザーデータをlocal storageに永続化している点
--   
 
 ## 課題
 
