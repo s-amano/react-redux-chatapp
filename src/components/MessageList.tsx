@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
-import { useMessages } from "../hooks/useMessages";
-import { MessageItem } from "./MessageItem";
+import { useMessages } from "hooks/useMessages";
+import { MessageItem } from "components/MessageItem";
 
 export const MessageList: React.FC = React.memo(() => {
   const { modifiedMessages, reactionMessageSubmit, fromNowDateFunction } =

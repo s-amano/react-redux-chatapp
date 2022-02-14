@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { useUser } from "../hooks/useUser";
+import { useUser } from "hooks/useUser";
 
 export const EnterForm: React.FC = React.memo(() => {
   const { isSignedIn, usernameSubmit } = useUser();

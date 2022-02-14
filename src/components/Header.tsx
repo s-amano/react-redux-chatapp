@@ -1,5 +1,5 @@
 import React from "react";
-import { ExitButton } from "./ExitButton";
+import { ExitButton } from "components/ExitButton";
 
 export const Header: React.FC = React.memo(() => {
   return (

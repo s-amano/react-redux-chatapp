@@ -1,7 +1,7 @@
-import "./App.css";
-import { Header } from "./components/Header";
-import { MessagesHeaderForm } from "./components/MessagesHeaderForm";
-import { MessageList } from "./components/MessageList";
+import "App.css";
+import { Header } from "components/Header";
+import { MessagesHeaderForm } from "components/MessagesHeaderForm";
+import { MessageList } from "components/MessageList";
 
 function App() {
   return (

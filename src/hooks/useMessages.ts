@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo } from "react";
 import { shallowEqual, useSelector, useDispatch } from "react-redux";
-import { getMessages } from "../reducks/messages/selectors";
-import { getUser } from "../reducks/user/selectors";
+import { getMessages } from "reducks/messages/selectors";
+import { getUser } from "reducks/user/selectors";
 import {
   fetchMessages,
   pushMessage,

@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { shallowEqual, useSelector, useDispatch } from "react-redux";
-import { RootState } from "../reducks/store/store";
-import { getUser } from "../reducks/user/selectors";
-import { signIn, signOut } from "../reducks/user/operations";
+import { RootState } from "reducks/store/store";
+import { getUser } from "reducks/user/selectors";
+import { signIn, signOut } from "reducks/user/operations";
 
 export const useUser = () => {
   const dispatch = useDispatch();

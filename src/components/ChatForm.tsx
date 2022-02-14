@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
-import { useMessages } from "../hooks/useMessages";
-import { useUser } from "../hooks/useUser";
+import { useMessages } from "hooks/useMessages";
+import { useUser } from "hooks/useUser";
 
 export const ChatForm: React.FC = React.memo(() => {
   const { signedInUsername } = useUser();

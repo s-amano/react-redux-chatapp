@@ -1,5 +1,5 @@
 import React from "react";
-import { useUser } from "../hooks/useUser";
+import { useUser } from "hooks/useUser";
 
 export const ExitButton: React.FC = React.memo(() => {
   const { isSignedIn, exitFromChat } = useUser();
