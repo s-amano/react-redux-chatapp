@@ -27,7 +27,7 @@ export interface RootState {
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["users"],
+  whitelist: ["user"],
 };
 
 // 永続化設定されたReducerとして定義
